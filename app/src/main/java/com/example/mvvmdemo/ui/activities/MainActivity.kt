@@ -23,7 +23,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun getTodo(i: Int) {
         viewModel.getTodoForUserId(i).observe(this, Observer {
-            consoleTextView.text = it.toString()
+            if(it.isSuccess()) {
+                consoleTextView.text = it.toString()
+            } else {
+                consoleTextView.text = it.error?.mMessage ?: "error"
+            }
         })
     }
 }

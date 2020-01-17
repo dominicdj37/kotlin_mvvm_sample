@@ -8,6 +8,6 @@ import retrofit2.http.Path
 interface WebServiceInterface {
 
     @GET("/todos/{id}")
-    suspend fun getTodos(@Path(value = "id") id: Int): Todo
+    suspend fun getTodo(@Path(value = "id") id: Int): Todo
 
 }
